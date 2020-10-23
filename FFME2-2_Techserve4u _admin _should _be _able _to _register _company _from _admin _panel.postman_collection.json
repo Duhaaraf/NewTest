@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "ae7a6400-4488-4f72-a4df-68905b12babc",
+		"name": "FFME2-2_Techserve4u _admin _should _be _able _to _register _company _from _admin _panel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Positive",
+			"item": [
+				{
+					"name": "-user-login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"email\": \"abc@gmail.com\",\r\n \"password\": \"Tafadar58\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "167.99.73.130:30287/api/v1/field-force/auth/dashboard-user-login",
+							"host": [
+								"167",
+								"99",
+								"73",
+								"130"
+							],
+							"port": "30287",
+							"path": [
+								"api",
+								"v1",
+								"field-force",
+								"auth",
+								"dashboard-user-login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Techserve4u admin should be able to register company from admin panel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a9cdd049-bff7-4cc5-a560-65d422518858",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"var schema =\r",
+									"{\r",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"title\": \"The root schema\",\r",
+									"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+									"    \"default\": {},\r",
+									"    \"examples\": [\r",
+									"        {\r",
+									"            \"data\": {\r",
+									"                \"company_address\": \"Ozonepark, US\",\r",
+									"                \"company_id\": 393,\r",
+									"                \"company_name\": \"Dunakin Donutss\",\r",
+									"                \"tin\": \"898922100\"\r",
+									"            },\r",
+									"            \"message\": \"Successfully registered company 'Dunakin Donutss' .\",\r",
+									"            \"status\": \"success\"\r",
+									"        }\r",
+									"    ],\r",
+									"    \"required\": [\r",
+									"        \"data\",\r",
+									"        \"message\",\r",
+									"        \"status\"\r",
+									"    ],\r",
+									"    \"properties\": {\r",
+									"        \"data\": {\r",
+									"            \"$id\": \"#/properties/data\",\r",
+									"            \"type\": \"object\",\r",
+									"            \"title\": \"The data schema\",\r",
+									"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"            \"default\": {},\r",
+									"            \"examples\": [\r",
+									"                {\r",
+									"                    \"company_address\": \"Ozonepark, US\",\r",
+									"                    \"company_id\": 393,\r",
+									"                    \"company_name\": \"Dunakin Donutss\",\r",
+									"                    \"tin\": \"898922100\"\r",
+									"                }\r",
+									"            ],\r",
+									"            \"required\": [\r",
+									"                \"company_address\",\r",
+									"                \"company_id\",\r",
+									"                \"company_name\",\r",
+									"                \"tin\"\r",
+									"            ],\r",
+									"            \"properties\": {\r",
+									"                \"company_address\": {\r",
+									"                    \"$id\": \"#/properties/data/properties/company_address\",\r",
+									"                    \"type\": \"string\",\r",
+									"                    \"title\": \"The company_address schema\",\r",
+									"                    \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"                    \"default\": \"\",\r",
+									"                    \"examples\": [\r",
+									"                        \"Ozonepark, US\"\r",
+									"                    ]\r",
+									"                },\r",
+									"                \"company_id\": {\r",
+									"                    \"$id\": \"#/properties/data/properties/company_id\",\r",
+									"                    \"type\": \"integer\",\r",
+									"                    \"title\": \"The company_id schema\",\r",
+									"                    \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"                    \"default\": 0,\r",
+									"                    \"examples\": [\r",
+									"                        393\r",
+									"                    ]\r",
+									"                },\r",
+									"                \"company_name\": {\r",
+									"                    \"$id\": \"#/properties/data/properties/company_name\",\r",
+									"                    \"type\": \"string\",\r",
+									"                    \"title\": \"The company_name schema\",\r",
+									"                    \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"                    \"default\": \"\",\r",
+									"                    \"examples\": [\r",
+									"                        \"Dunakin Donutss\"\r",
+									"                    ]\r",
+									"                },\r",
+									"                \"tin\": {\r",
+									"                    \"$id\": \"#/properties/data/properties/tin\",\r",
+									"                    \"type\": \"string\",\r",
+									"                    \"title\": \"The tin schema\",\r",
+									"                    \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"                    \"default\": \"\",\r",
+									"                    \"examples\": [\r",
+									"                        \"898922100\"\r",
+									"                    ]\r",
+									"                }\r",
+									"            },\r",
+									"            \"additionalProperties\": true\r",
+									"        },\r",
+									"        \"message\": {\r",
+									"            \"$id\": \"#/properties/message\",\r",
+									"            \"type\": \"string\",\r",
+									"            \"title\": \"The message schema\",\r",
+									"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"            \"default\": \"\",\r",
+									"            \"examples\": [\r",
+									"                \"Successfully registered company 'Dunakin Donutss' .\"\r",
+									"            ]\r",
+									"        },\r",
+									"        \"status\": {\r",
+									"            \"$id\": \"#/properties/status\",\r",
+									"            \"type\": \"string\",\r",
+									"            \"title\": \"The status schema\",\r",
+									"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"            \"default\": \"\",\r",
+									"            \"examples\": [\r",
+									"                \"success\"\r",
+									"            ]\r",
+									"        }\r",
+									"    },\r",
+									"    \"additionalProperties\": true\r",
+									"}\r",
+									"tests[\"valid schema\"] = tv4.validate(jsonData, schema);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDM0MjA5MjksImlhdCI6MTYwMzQxNzMyOSwic3ViIjo1MTgsInVzZXJfdHlwZSI6IkRhc2hib2FyZCIsIm5hbWUiOiJFdmEgUmFscGgiLCJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJtZW1iZXJfdHlwZSI6MSwiY29tcGFueV9pZCI6MzU2LCJkZXNpZ25hdGlvbiI6bnVsbCwiZGVwYXJ0bWVudCI6bnVsbH0.3RY2FzdI2HcwsaA676yOhStay1NBmmebfhU-wTn9AoU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"Dunakin Dojjnutss\",\r\n\"address\": \"Ozonepaark, US\",\r\n\"tin\": \"8989221100\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/field-force/auth/register-company",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"field-force",
+								"auth",
+								"register-company"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Negative",
+			"item": [
+				{
+					"name": "Techserve4u admin should not be able to create company withour companyname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cd622fc2-4b02-4941-aebc-5adec6e63d3f",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 600ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+									"});\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"var schema =\r",
+									"{\r",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"title\": \"The root schema\",\r",
+									"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+									"    \"default\": {},\r",
+									"    \"examples\": [\r",
+									"        {\r",
+									"            \"message\": [\r",
+									"                \"name must be non-empty\"\r",
+									"            ],\r",
+									"            \"status\": \"failed\"\r",
+									"        }\r",
+									"    ],\r",
+									"    \"required\": [\r",
+									"        \"message\",\r",
+									"        \"status\"\r",
+									"    ],\r",
+									"    \"properties\": {\r",
+									"        \"message\": {\r",
+									"            \"$id\": \"#/properties/message\",\r",
+									"            \"type\": \"array\",\r",
+									"            \"title\": \"The message schema\",\r",
+									"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"            \"default\": [],\r",
+									"            \"examples\": [\r",
+									"                [\r",
+									"                    \"name must be non-empty\"\r",
+									"                ]\r",
+									"            ],\r",
+									"            \"additionalItems\": true,\r",
+									"            \"items\": {\r",
+									"                \"$id\": \"#/properties/message/items\",\r",
+									"                \"anyOf\": [\r",
+									"                    {\r",
+									"                        \"$id\": \"#/properties/message/items/anyOf/0\",\r",
+									"                        \"type\": \"string\",\r",
+									"                        \"title\": \"The first anyOf schema\",\r",
+									"                        \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"                        \"default\": \"\",\r",
+									"                        \"examples\": [\r",
+									"                            \"name must be non-empty\"\r",
+									"                        ]\r",
+									"                    }\r",
+									"                ]\r",
+									"            }\r",
+									"        },\r",
+									"        \"status\": {\r",
+									"            \"$id\": \"#/properties/status\",\r",
+									"            \"type\": \"string\",\r",
+									"            \"title\": \"The status schema\",\r",
+									"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"            \"default\": \"\",\r",
+									"            \"examples\": [\r",
+									"                \"failed\"\r",
+									"            ]\r",
+									"        }\r",
+									"    },\r",
+									"    \"additionalProperties\": true\r",
+									"}\r",
+									"tests[\"valid schema\"] = tv4.validate(jsonData, schema);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDM0MjA5MjksImlhdCI6MTYwMzQxNzMyOSwic3ViIjo1MTgsInVzZXJfdHlwZSI6IkRhc2hib2FyZCIsIm5hbWUiOiJFdmEgUmFscGgiLCJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJtZW1iZXJfdHlwZSI6MSwiY29tcGFueV9pZCI6MzU2LCJkZXNpZ25hdGlvbiI6bnVsbCwiZGVwYXJ0bWVudCI6bnVsbH0.3RY2FzdI2HcwsaA676yOhStay1NBmmebfhU-wTn9AoU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"\",\r\n\"address\": \"Ozonepark, Ny\",\r\n\"tin\": \"8989100\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/field-force/auth/register-company",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"field-force",
+								"auth",
+								"register-company"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
